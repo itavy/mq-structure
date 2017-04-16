@@ -1,0 +1,44 @@
+{
+  "name": "@itavy/mq-structure",
+  "version": "0.0.0",
+  "description": "Mq structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "coverage:check": "./node_modules/.bin/istanbul check-coverage",
+    "test:check-style": "./node_modules/.bin/eslint index.js lib/* \"test/**/*.js\"",
+    "pretest": "npm run test:check-style"
+  },
+  "pre-commit": [
+    "coverage",
+    "coverage:check"
+  ],
+  "keywords": [
+    "mq",
+    "structure"
+  ],
+  "author": "Octavian Ionescu <itavyg@gmail.com> (https://github.com/itavy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itavy/mq-structure/issues"
+  },
+  "homepage": "https://github.com/itavy/mq-structure#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itavy/mq-structure.git"
+  },
+  "dependencies": {
+    "@itavy/utilities": "^1.1.0",
+    "protobufjs": "^6.7.3"
+  },
+  "devDependencies": {
+    "@itavy/test-utilities": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "pre-commit": "^1.2.2"
+  }
+}
