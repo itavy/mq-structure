@@ -1,0 +1,13 @@
+syntax = "proto3";
+package itavy.mq.structure;
+
+message MQMessage {
+    string msg_type = 1;
+    string id = 2;
+    string reply_to = 3;
+    string reply_on = 4;
+    string from = 5;
+    string to = 6;
+    int64 ts = 7;
+    bytes message = 8;
+}
