@@ -13,7 +13,7 @@ const getVersionModule = () => {
   if (semver.gte(process.version, minNodeVersion)) {
     return v6x;
   }
-  throw Error(`Invalid node version for @itavy/error, current: ${process.version}, min: ${minNodeVersion}`);
+  throw Error(`Invalid node version for @itavy/mq-structure, current: ${process.version}, min: ${minNodeVersion}`);
 };
 
 module.exports = getVersionModule();
