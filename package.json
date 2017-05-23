@@ -29,6 +29,7 @@
     "url": "git+https://github.com/itavy/mq-structure.git"
   },
   "dependencies": {
+    "@itavy/extended-map": "^1.0.0",
     "@itavy/utilities": "^1.1.1",
     "debug": "^2.6.8",
     "protobufjs": "^6.7.3",
