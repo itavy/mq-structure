@@ -8,6 +8,8 @@
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "coverage:check": "./node_modules/.bin/istanbul check-coverage",
     "test:check-style": "./node_modules/.bin/eslint index.js \"lib/**/*.js\" \"test/**/*.js\"",
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/v6x/*.js > README.md",
     "pretest": "npm run test:check-style"
   },
   "pre-commit": [
@@ -30,6 +32,7 @@
   },
   "dependencies": {
     "@itavy/extended-map": "^1.0.0",
+    "@itavy/ierror": "^1.0.2",
     "@itavy/utilities": "^1.1.1",
     "debug": "^2.6.8",
     "protobufjs": "^6.7.3",
