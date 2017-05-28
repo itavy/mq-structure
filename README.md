@@ -1,7 +1,5 @@
 # mq-Structure
 
-<mq-Structure description placeholder>
-
 ## Instalation
 
 ```
@@ -10,7 +8,7 @@ npm install @itavy/mq-structure
 
 ## Quick Example
 
-<mq-Structure quick examole placeholder>
+#### TODO
 
 ## API
 ## Classes
@@ -224,7 +222,10 @@ Serializer for MqMessage
 
 ## Usage
 
+#### TODO
+<!--
 see [Example](https://github.com/itavy/mq-structure/blob/master/examples/example.js)
+-->
 
 ## LICENSE
 

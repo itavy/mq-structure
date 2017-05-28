@@ -13,8 +13,7 @@
     "pretest": "npm run test:check-style"
   },
   "pre-commit": [
-    "test:check-style",
-    "coverage"
+    "test"
   ],
   "keywords": [
     "mq",
