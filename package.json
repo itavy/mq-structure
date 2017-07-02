@@ -17,7 +17,8 @@
   ],
   "keywords": [
     "mq",
-    "structure"
+    "mq serialization",
+    "mq structure"
   ],
   "author": "Octavian Ionescu <itavyg@gmail.com> (https://github.com/itavy)",
   "license": "MIT",
@@ -30,7 +31,7 @@
     "url": "git+https://github.com/itavy/mq-structure.git"
   },
   "dependencies": {
-    "@itavy/extended-map": "^1.0.0",
+    "@itavy/extended-map": "^3.0.0",
     "@itavy/ierror": "^1.0.2",
     "@itavy/utilities": "^1.1.1",
     "debug": "^2.6.8",
@@ -38,7 +39,7 @@
     "semver": "^5.3.0"
   },
   "devDependencies": {
-    "@itavy/test-utilities": "^1.2.0",
+    "@itavy/test-utilities": "^2.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",

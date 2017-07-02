@@ -6,10 +6,6 @@
 npm install @itavy/mq-structure
 ```
 
-## Quick Example
-
-#### TODO
-
 ## API
 ## Classes
 
@@ -220,12 +216,9 @@ Serializer for MqMessage
 | sourceIdentifier | <code>String</code> | <code>&#x27;&#x27;</code> | prefix for errors source |
 
 
-## Usage
+## TODO
 
-#### TODO
-<!--
-see [Example](https://github.com/itavy/mq-structure/blob/master/examples/example.js)
--->
+* Examples
 
 ## LICENSE
 

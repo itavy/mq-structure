@@ -26,9 +26,6 @@ describe('Initialization', () => {
     expect(has(testMessage, 'messagesVersion')).to.be.equal(true);
     expect(has(testMessage, 'reverseMessageVersion')).to.be.equal(true);
 
-    // expect(testMessage).to.have.all.keys('debug', 'sourceIdentifier', 'errorBuilder',
-    //   'serializer', 'messagesVersion', 'reverseMessageVersion');
-
     done();
   });
 
