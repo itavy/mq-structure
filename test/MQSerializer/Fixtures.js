@@ -12,7 +12,11 @@ const serializer = pbLib.loadSync(pbFile);
 const testMessage = Reflect.construct(MQMessage, [{
   id:      'testingId',
   replyTo: 'testReplyTo',
-  replyOn: 'testReplyOn',
+  replyOn: {
+    queue:    'testReplyOn',
+    topic:    'test.topic.reply',
+    exchange: 'testExchange',
+  },
   from:    'testFrom',
   to:      'testTo',
   ts:      1234567890,
