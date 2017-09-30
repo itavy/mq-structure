@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
-    "coverage:check": "./node_modules/.bin/istanbul check-coverage",
     "test:check-style": "./node_modules/.bin/eslint index.js \"lib/**/*.js\" \"test/**/*.js\"",
+    "test:coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test:coverage:check": "./node_modules/.bin/istanbul check-coverage",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
     "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/v6x/*.js > README.md",
     "pretest": "npm run test:check-style"
@@ -34,7 +34,7 @@
     "@itavy/extended-map": "^3.0.0",
     "@itavy/ierror": "^1.1.1",
     "@itavy/utilities": "^1.1.1",
-    "debug": "^3.0.1",
+    "debug": "^3.1.0",
     "protobufjs": "^6.8.0",
     "semver": "^5.4.1"
   },
