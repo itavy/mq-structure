@@ -24,7 +24,7 @@ describe('Serializer', () => {
     const serializer = getSerializer();
     const mapSpy = sandbox.spy(serializer.messagesVersion, 'get');
 
-    return serializer.serialize(Reflect.construct(MQMessage, []))
+    return serializer.serialize(Reflect.construct(MQMessage, [{}]))
       .should.be.fulfilled
       .then((response) => {
         expect(mapSpy.callCount).to.be.equal(1);

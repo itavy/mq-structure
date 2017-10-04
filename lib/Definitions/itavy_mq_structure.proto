@@ -7,8 +7,7 @@ message MQMessagePartial {
 
 message MQReplyOn {
   string queue = 1;
-  string topic = 2;
-  string exchange = 3;
+  string exchange = 2;
 }
 
 message MQMessage {

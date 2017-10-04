@@ -14,7 +14,6 @@ const testMessage = Reflect.construct(MQMessage, [{
   replyTo: 'testReplyTo',
   replyOn: {
     queue:    'testReplyOn',
-    topic:    'test.topic.reply',
     exchange: 'testExchange',
   },
   from:    'testFrom',
