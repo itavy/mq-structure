@@ -1,16 +1,15 @@
 'use strict';
 
-const testUtilities = require('@itavy/test-utilities');
-const getSerializer = require('../../lib/v6x').getSerializer;
-const MQMessage = require('../../lib/v6x').MQMessage;
+const { expect, getSinonSandbox } = require('@itavy/test-utilities');
+const { getSerializer } = require('../../lib/v6x');
+const { MQMessage } = require('../../lib/v6x');
 
-const expect = testUtilities.getExpect();
 
 describe('Serializer', () => {
   let sandbox;
 
   beforeEach((done) => {
-    sandbox = testUtilities.getSinonSandbox();
+    sandbox = getSinonSandbox();
     done();
   });
 

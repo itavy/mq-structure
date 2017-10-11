@@ -1,10 +1,9 @@
 'use strict';
 
-const testUtilities = require('@itavy/test-utilities');
-const getSerializer = require('../../lib/v6x').getSerializer;
+const { expect } = require('@itavy/test-utilities');
+const { getSerializer } = require('../../lib/v6x');
 const fixtures = require('./Fixtures');
 
-const expect = testUtilities.getExpect();
 
 describe('getUnserializer', () => {
   it('Should reject with specific error for unknown schema', () => {

@@ -1,8 +1,8 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-const getSerializer = require('../../lib/v6x').getSerializer;
-const MQSerializer = require('../../lib/v6x/MQSerializer').MQSerializer;
+const { expect } = require('@itavy/test-utilities');
+const { getSerializer } = require('../../lib/v6x');
+const { MQSerializer } = require('../../lib/v6x/MQSerializer');
 
 // eslint-disable-next-line require-jsdoc
 const has = (obj, prop) => Object.hasOwnProperty.call(obj, prop);

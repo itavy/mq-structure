@@ -1,7 +1,7 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-const MQMessage = require('../../lib/v6x').MQMessage;
+const { expect } = require('@itavy/test-utilities');
+const { MQMessage } = require('../../lib/v6x');
 
 describe('toJSON', () => {
   it('Should return a literal object', (done) => {
@@ -13,8 +13,10 @@ describe('toJSON', () => {
 
   it('Should return a required properties', (done) => {
     const testMessage = Reflect.construct(MQMessage, [{}]).toJSON();
-    expect(testMessage).to.have.all.keys('id', 'replyTo', 'replyOn', 'from', 'to',
-      'ts', 'message');
+    expect(testMessage).to.have.all.keys(
+      'id', 'replyTo', 'replyOn', 'from', 'to',
+      'ts', 'message'
+    );
     done();
   });
 });

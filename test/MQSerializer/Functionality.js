@@ -1,10 +1,8 @@
 'use strict';
 
-const testUtilities = require('@itavy/test-utilities');
+const { expect } = require('@itavy/test-utilities');
 const serializationLib = require('../../lib/v6x');
 const fixtures = require('./Fixtures');
-
-const expect = testUtilities.getExpect();
 
 describe('Functionality', () => {
   it('Should decode with success what has been encoded', () => {

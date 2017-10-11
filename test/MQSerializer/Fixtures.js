@@ -1,10 +1,10 @@
 'use strict';
 
 const pbLib = require('protobufjs');
-const path = require('path');
-const MQMessage = require('../../lib/v6x/MQMessage').MQMessage;
+const { join } = require('path');
+const { MQMessage } = require('../../lib/v6x/MQMessage');
 
-const pbFile = path.join(__dirname, '..', '..', 'lib', 'Definitions', 'itavy_mq_structure.proto');
+const pbFile = join(__dirname, '..', '..', 'lib', 'Definitions', 'itavy_mq_structure.proto');
 const pbNamespace = 'itavy.mq.structure';
 
 const serializer = pbLib.loadSync(pbFile);
@@ -46,10 +46,9 @@ const getV1SerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
   const msgToSerialize = Reflect.construct(MQMessage, [message]);
   return v1Serializer
-    .encode(v1Serializer.fromObject(
-      Object.assign(msgToSerialize.toJSON(), {
-        msgType: fullSchema.v1,
-      })))
+    .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
+      msgType: fullSchema.v1,
+    })))
     .finish();
 };
 
@@ -62,10 +61,9 @@ const getV1UnknownSchemaSerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
   const msgToSerialize = Reflect.construct(MQMessage, [message]);
   return v1Serializer
-    .encode(v1Serializer.fromObject(
-      Object.assign(msgToSerialize.toJSON(), {
-        msgType: 'UNKNOWNSCHEMA',
-      })))
+    .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
+      msgType: 'UNKNOWNSCHEMA',
+    })))
     .finish();
 };
 
@@ -78,10 +76,9 @@ const getV1PartialSchemaSerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
   const msgToSerialize = Reflect.construct(MQMessage, [message]);
   return v1Serializer
-    .encode(v1Serializer.fromObject(
-      Object.assign(msgToSerialize.toJSON(), {
-        msgType: fullSchema.partial,
-      })))
+    .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
+      msgType: fullSchema.partial,
+    })))
     .finish();
 };
 
