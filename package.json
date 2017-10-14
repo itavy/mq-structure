@@ -8,7 +8,7 @@
     "test:check-style": "./node_modules/.bin/eslint index.js \"lib/latest/*.js\" \"test/**/*.js\"",
     "test:coverage": "./node_modules/.bin/nyc npm test",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
-    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/latest/*.js > README.md",
+    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/latest/**/*.js > README.md",
     "build": "npm run build:v6x",
     "build:add": "git add lib",
     "build:v6x": "BABEL_ENV=v6x ./node_modules/.bin/babel lib/latest -d lib/v6x",
@@ -71,7 +71,7 @@
     "functions": 95,
     "branches": 95,
     "include": [
-      "lib/latest/*.js"
+      "lib/latest/**/*.js"
     ],
     "reporter": [
       "lcov",

@@ -10,7 +10,7 @@ message MQReplyOn {
   string exchange = 2;
 }
 
-message MQMessage {
+message MQMessageV1 {
   string msg_type = 1;
   string id = 2;
   string reply_to = 3;

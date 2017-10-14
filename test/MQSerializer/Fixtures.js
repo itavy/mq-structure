@@ -2,14 +2,14 @@
 
 const pbLib = require('protobufjs');
 const { join } = require('path');
-const { MQMessage } = require('../../');
+const { MQMessageV1 } = require('../../');
 
 const pbFile = join(__dirname, '..', '..', 'lib', 'Definitions', 'itavy_mq_structure.proto');
 const pbNamespace = 'itavy.mq.structure';
 
 const serializer = pbLib.loadSync(pbFile);
 
-const testMessage = Reflect.construct(MQMessage, [{
+const testMessage = Reflect.construct(MQMessageV1, [{
   id:      'testingId',
   replyTo: 'testReplyTo',
   replyOn: {
@@ -24,12 +24,14 @@ const testMessage = Reflect.construct(MQMessage, [{
 
 const shortSchema = {
   partial: 'MQMessagePartial',
-  v1:      'MQMessage',
+  v1:      'MQMessageV1',
+  version: '1',
 };
 
 const fullSchema = {
   partial: `${pbNamespace}.${shortSchema.partial}`,
   v1:      `${pbNamespace}.${shortSchema.v1}`,
+  version: shortSchema.version,
 };
 
 const errors = {
@@ -44,7 +46,7 @@ const errors = {
  */
 const getV1SerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
-  const msgToSerialize = Reflect.construct(MQMessage, [message]);
+  const msgToSerialize = Reflect.construct(MQMessageV1, [message]);
   return v1Serializer
     .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
       msgType: fullSchema.v1,
@@ -59,7 +61,7 @@ const getV1SerializedMessage = (message = {}) => {
  */
 const getV1UnknownSchemaSerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
-  const msgToSerialize = Reflect.construct(MQMessage, [message]);
+  const msgToSerialize = Reflect.construct(MQMessageV1, [message]);
   return v1Serializer
     .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
       msgType: 'UNKNOWNSCHEMA',
@@ -74,7 +76,7 @@ const getV1UnknownSchemaSerializedMessage = (message = {}) => {
  */
 const getV1PartialSchemaSerializedMessage = (message = {}) => {
   const v1Serializer = serializer.lookup(fullSchema.v1);
-  const msgToSerialize = Reflect.construct(MQMessage, [message]);
+  const msgToSerialize = Reflect.construct(MQMessageV1, [message]);
   return v1Serializer
     .encode(v1Serializer.fromObject(Object.assign(msgToSerialize.toJSON(), {
       msgType: fullSchema.partial,

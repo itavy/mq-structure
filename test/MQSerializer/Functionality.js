@@ -11,7 +11,7 @@ describe('Functionality', () => {
     return serializer.serialize(fixtures.testMessage)
       .then(response => serializer.unserialize(response))
       .should.be.fulfilled
-      .then((message) => {
+      .then(({ message }) => {
         expect(message).to.be.eql(fixtures.testMessage.toJSON());
         return Promise.resolve();
       });

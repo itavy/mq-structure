@@ -22,6 +22,7 @@ describe('Initialization', () => {
     const testMessage = Reflect.construct(MQSerializer, []);
 
     expect(testMessage).to.respondTo('serialize');
+    expect(testMessage).to.respondTo('serializeSync');
     expect(testMessage).to.respondTo('unserialize');
     expect(testMessage).to.respondTo('getUnserializer');
 

@@ -1,6 +1,8 @@
 'use strict';
 
 describe('MQMessage', () => {
-  require('./Initialization'); // eslint-disable-line global-require
-  require('./ToJSON'); // eslint-disable-line global-require
+  require('./GetPBSerializer'); // eslint-disable-line global-require
+  require('./SetPBSerializer'); // eslint-disable-line global-require
+  require('./FromSync'); // eslint-disable-line global-require
+  require('./From'); // eslint-disable-line global-require
 });

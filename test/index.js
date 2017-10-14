@@ -1,4 +1,5 @@
 'use strict';
 
-require('./MqMessage');
 require('./MQSerializer');
+require('./MqMessageV1');
+require('./MqMessage');

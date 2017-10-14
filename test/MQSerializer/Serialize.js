@@ -1,9 +1,9 @@
 'use strict';
 
 const { expect, getSinonSandbox } = require('@itavy/test-utilities');
-const { MQSerializer, MQMessage } = require('../../');
+const { MQSerializer, MQMessageV1 } = require('../../');
 
-describe('Serializer', () => {
+describe('Serialize', () => {
   let sandbox;
 
   beforeEach((done) => {
@@ -19,13 +19,14 @@ describe('Serializer', () => {
 
   it('Should return a buffer', () => {
     const serializer = Reflect.construct(MQSerializer, []);
-    const mapSpy = sandbox.spy(serializer.messagesVersion, 'get');
+    const spy = sandbox.spy(serializer, 'serializeSync');
+    const msgToSerialize = Reflect.construct(MQMessageV1, [{}]);
 
-    return serializer.serialize(Reflect.construct(MQMessage, [{}]))
+    return serializer.serialize(msgToSerialize)
       .should.be.fulfilled
       .then((response) => {
-        expect(mapSpy.callCount).to.be.equal(1);
-        expect(mapSpy.getCall(0).args).to.be.eql(['1']);
+        expect(spy.callCount).to.be.equal(1);
+        expect(spy.getCall(0).args).to.be.eql([msgToSerialize, '1']);
         expect(response).to.be.instanceof(Buffer);
         return Promise.resolve();
       });
