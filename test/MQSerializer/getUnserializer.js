@@ -1,13 +1,13 @@
 'use strict';
 
 const { expect } = require('@itavy/test-utilities');
-const { getSerializer } = require('../../lib/v6x');
+const { MQSerializer } = require('../../');
 const fixtures = require('./Fixtures');
 
 
 describe('getUnserializer', () => {
   it('Should reject with specific error for unknown schema', () => {
-    const serializer = getSerializer();
+    const serializer = Reflect.construct(MQSerializer, []);
     const badMessage = fixtures.getV1UnknownSchemaSerializedMessage();
 
     return serializer.getUnserializer(badMessage)
@@ -20,7 +20,7 @@ describe('getUnserializer', () => {
   });
 
   it('Should resolve with a known unserializer', () => {
-    const serializer = getSerializer();
+    const serializer = Reflect.construct(MQSerializer, []);
     const knownMessage = fixtures.getV1SerializedMessage();
 
     return serializer.getUnserializer(knownMessage)
@@ -32,7 +32,7 @@ describe('getUnserializer', () => {
   });
 
   it('Should reject with specific error for partial schema', () => {
-    const serializer = getSerializer();
+    const serializer = Reflect.construct(MQSerializer, []);
     const malformedMessage = fixtures.getV1PartialSchemaSerializedMessage();
 
     return serializer.getUnserializer(malformedMessage)

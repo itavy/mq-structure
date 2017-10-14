@@ -1,7 +1,7 @@
 'use strict';
 
 const { expect } = require('@itavy/test-utilities');
-const { MQMessage } = require('../../lib/v6x');
+const { MQMessage } = require('../../');
 
 describe('toJSON', () => {
   it('Should return a literal object', (done) => {

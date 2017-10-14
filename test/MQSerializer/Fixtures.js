@@ -2,7 +2,7 @@
 
 const pbLib = require('protobufjs');
 const { join } = require('path');
-const { MQMessage } = require('../../lib/v6x/MQMessage');
+const { MQMessage } = require('../../');
 
 const pbFile = join(__dirname, '..', '..', 'lib', 'Definitions', 'itavy_mq_structure.proto');
 const pbNamespace = 'itavy.mq.structure';

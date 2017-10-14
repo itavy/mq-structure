@@ -1,9 +1,7 @@
 'use strict';
 
 const { expect, getSinonSandbox } = require('@itavy/test-utilities');
-const { getSerializer } = require('../../lib/v6x');
-const { MQMessage } = require('../../lib/v6x');
-
+const { MQSerializer, MQMessage } = require('../../');
 
 describe('Serializer', () => {
   let sandbox;
@@ -20,7 +18,7 @@ describe('Serializer', () => {
 
 
   it('Should return a buffer', () => {
-    const serializer = getSerializer();
+    const serializer = Reflect.construct(MQSerializer, []);
     const mapSpy = sandbox.spy(serializer.messagesVersion, 'get');
 
     return serializer.serialize(Reflect.construct(MQMessage, [{}]))

@@ -1,7 +1,9 @@
 'use strict';
 
 const { expect, getSinonSandbox } = require('@itavy/test-utilities');
-const serializationLib = require('../../lib/v6x');
+const { MQSerializer } = require('../../');
+//
+// const serializationLib = require('../../lib/latest/index');
 const fixtures = require('./Fixtures');
 
 
@@ -19,7 +21,7 @@ describe('Unserialize', () => {
   });
 
   it('Should call unserializer and reject with specific error', () => {
-    const serializer = serializationLib.getSerializer();
+    const serializer = Reflect.construct(MQSerializer, []);
     const badMessage = fixtures.getV1UnknownSchemaSerializedMessage();
 
     const getUnserializerSpy = sandbox.spy(serializer, 'getUnserializer');
@@ -36,14 +38,14 @@ describe('Unserialize', () => {
       });
   });
 
-  it('Should resolve with an instance of MQMessage', () => {
-    const serializer = serializationLib.getSerializer();
+  it('Should resolve with an object', () => {
+    const serializer = Reflect.construct(MQSerializer, []);
     const message = fixtures.getV1SerializedMessage();
 
     return serializer.unserialize(message)
       .should.be.fulfilled
       .then((response) => {
-        expect(response).to.be.instanceof(serializationLib.MQMessage);
+        expect(response).to.be.instanceof(Object);
         return Promise.resolve();
       });
   });

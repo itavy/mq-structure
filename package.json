@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "test:check-style": "./node_modules/.bin/eslint index.js \"lib/**/*.js\" \"test/**/*.js\"",
+    "test:check-style": "./node_modules/.bin/eslint index.js \"lib/latest/*.js\" \"test/**/*.js\"",
     "test:coverage": "./node_modules/.bin/nyc npm test",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
-    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/v6x/*.js > README.md",
+    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/latest/*.js > README.md",
+    "build": "npm run build:v6x",
+    "build:add": "git add lib",
+    "build:v6x": "BABEL_ENV=v6x ./node_modules/.bin/babel lib/latest -d lib/v6x",
     "pretest": "npm run test:check-style"
   },
   "pre-commit": [
-    "test"
+    "test",
+    "build",
+    "build:add"
   ],
   "keywords": [
     "mq",
@@ -39,6 +44,9 @@
   },
   "devDependencies": {
     "@itavy/test-utilities": "~4.0.0",
+    "babel-cli": "~6.26.0",
+    "babel-plugin-transform-object-rest-spread": "~6.26.0",
+    "babel-preset-env": "~1.6.0",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
@@ -63,7 +71,7 @@
     "functions": 95,
     "branches": 95,
     "include": [
-      "lib/**/*.js"
+      "lib/latest/*.js"
     ],
     "reporter": [
       "lcov",
