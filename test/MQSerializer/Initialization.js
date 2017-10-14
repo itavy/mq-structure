@@ -1,7 +1,7 @@
 'use strict';
 
 const { expect } = require('@itavy/test-utilities');
-const { MQSerializer } = require('../../lib/latest/index');
+const { MQSerializer } = require('../../');
 
 // eslint-disable-next-line require-jsdoc
 const has = (obj, prop) => Object.hasOwnProperty.call(obj, prop);
