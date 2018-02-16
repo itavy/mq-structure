@@ -4,7 +4,7 @@
     },
     "source": {
         "include": [
-            "./lib/v6x/"
+            "./lib/latest/"
         ],
         "exclude": [],
         "includePattern": ".+\\.js(doc)?$",
