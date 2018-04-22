@@ -3,3 +3,4 @@
 ./test/index.js
 -t 3000
 -b
+--colors

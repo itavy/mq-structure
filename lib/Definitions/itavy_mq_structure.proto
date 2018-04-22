@@ -1,0 +1,23 @@
+syntax = "proto3";
+package itavy.mq.structure;
+
+message MQMessagePartial {
+  string msg_type = 1;
+}
+
+message MQReplyOn {
+  string queue = 1;
+  string exchange = 2;
+}
+
+message MQMessageV1 {
+  string msg_type = 1;
+  string id = 2;
+  string reply_to = 3;
+  MQReplyOn reply_on = 4;
+  string from = 5;
+  string to = 6;
+  int64 ts = 7;
+  bytes message = 8;
+}
+
