@@ -34,7 +34,7 @@
         "lenient"       : false,
         "destination"   : "./docs",
         "template"      : "./node_modules/jaguarjs-jsdoc",
-        "sourceRoot"    : "https://github.com/itavy/mq-structure/master/lib/v6x",
+        "sourceRoot"    : "https://github.com/itavy/mq-structure/master/lib/latest",
         "repo"          : "https://github.com/itavy/mq-structure"
     }
 }
